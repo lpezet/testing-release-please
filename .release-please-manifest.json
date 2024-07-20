@@ -1,6 +1,4 @@
 {
-  "project-a": "1.0.0",
-  "project-b": "1.0.0",
-  "projectA": "1.0.1",
-  "projectB": "1.0.1"
+  "projectA": "1.1.0",
+  "projectB": "1.1.0"
 }
