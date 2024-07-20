@@ -3,9 +3,8 @@ name: Release Please
 on:
   push:
     branches:
-      # - main
-      - release/*
-
+      - main
+      
   pull_request:
     types: [closed]
 
