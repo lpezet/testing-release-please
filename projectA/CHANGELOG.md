@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.6.0](https://github.com/lpezet/testing-release-please/compare/project-a-v1.5.0...project-a-v1.6.0) (2024-07-20)
+
+
+### Chores
+
+* setting next release to 1.6.0 ([5a61eef](https://github.com/lpezet/testing-release-please/commit/5a61eef920a340ec69b0a6a5994c040fc9726c7a))
+
 ## [1.5.0](https://github.com/lpezet/testing-release-please/compare/project-a-v1.4.0...project-a-v1.5.0) (2024-07-20)
 
 
