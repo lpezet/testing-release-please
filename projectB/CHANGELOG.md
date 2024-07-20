@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.3.0](https://github.com/lpezet/testing-release-please/compare/project-b-v1.2.0...project-b-v1.3.0) (2024-07-20)
+
+
+### Chores
+
+* setting next release to 1.3.0 ([#19](https://github.com/lpezet/testing-release-please/issues/19)) ([876a425](https://github.com/lpezet/testing-release-please/commit/876a4257ec4b6dcdfbd56a8ba6823a28125f1e50))
+
 ## [1.2.0](https://github.com/lpezet/testing-release-please/compare/project-b-v1.1.1...project-b-v1.2.0) (2024-07-20)
 
 
