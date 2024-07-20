@@ -1,5 +1,17 @@
 # Changelog
 
+## [1.2.0](https://github.com/lpezet/testing-release-please/compare/project-b-v1.1.1...project-b-v1.2.0) (2024-07-20)
+
+
+### Bug Fixes
+
+* **projectB:** updated home page. ([#18](https://github.com/lpezet/testing-release-please/issues/18)) ([d41bbf1](https://github.com/lpezet/testing-release-please/commit/d41bbf112ea6f0190291bb3038b1ee3086e5396a))
+
+
+### Chores
+
+* release 1.2.0 ([#15](https://github.com/lpezet/testing-release-please/issues/15)) ([d00d955](https://github.com/lpezet/testing-release-please/commit/d00d95554fe9456008d76ee06fd1046cc3ceef64))
+
 ## [1.1.1](https://github.com/lpezet/testing-release-please/compare/project-b-v1.1.0...project-b-v1.1.1) (2024-07-20)
 
 

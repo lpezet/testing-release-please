@@ -1,5 +1,17 @@
 # Changelog
 
+## [1.2.0](https://github.com/lpezet/testing-release-please/compare/project-a-v1.1.1...project-a-v1.2.0) (2024-07-20)
+
+
+### Bug Fixes
+
+* **projectA:** fixed getHello() service. ([#17](https://github.com/lpezet/testing-release-please/issues/17)) ([c0952ce](https://github.com/lpezet/testing-release-please/commit/c0952ceb1d5b1a0f69470e1bb871235da2ed6660))
+
+
+### Chores
+
+* release 1.2.0 ([#15](https://github.com/lpezet/testing-release-please/issues/15)) ([d00d955](https://github.com/lpezet/testing-release-please/commit/d00d95554fe9456008d76ee06fd1046cc3ceef64))
+
 ## [1.1.1](https://github.com/lpezet/testing-release-please/compare/project-a-v1.1.0...project-a-v1.1.1) (2024-07-20)
 
 
