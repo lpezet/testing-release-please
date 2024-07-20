@@ -1,5 +1,17 @@
 # Changelog
 
+## [1.5.0](https://github.com/lpezet/testing-release-please/compare/project-a-v1.4.0...project-a-v1.5.0) (2024-07-20)
+
+
+### Bug Fixes
+
+* Added 123 to project A service. ([#25](https://github.com/lpezet/testing-release-please/issues/25)) ([1d737fe](https://github.com/lpezet/testing-release-please/commit/1d737fe9fe8b72d74a5bcbf53043d3d006ea16d9))
+
+
+### Chores
+
+* setting next release to 1.5.0 ([c3297bb](https://github.com/lpezet/testing-release-please/commit/c3297bbd2b559c533568dcd36c1dd1b06bb9434b))
+
 ## [1.4.0](https://github.com/lpezet/testing-release-please/compare/project-a-v1.3.0...project-a-v1.4.0) (2024-07-20)
 
 

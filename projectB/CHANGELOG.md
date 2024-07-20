@@ -1,5 +1,17 @@
 # Changelog
 
+## [1.5.0](https://github.com/lpezet/testing-release-please/compare/project-b-v1.4.0...project-b-v1.5.0) (2024-07-20)
+
+
+### Bug Fixes
+
+* **projectB:** Added 123 to project B app. ([#26](https://github.com/lpezet/testing-release-please/issues/26)) ([5456ac8](https://github.com/lpezet/testing-release-please/commit/5456ac864211f03f3ce36b83647e6f063ae21659))
+
+
+### Chores
+
+* setting next release to 1.5.0 ([c3297bb](https://github.com/lpezet/testing-release-please/commit/c3297bbd2b559c533568dcd36c1dd1b06bb9434b))
+
 ## [1.4.0](https://github.com/lpezet/testing-release-please/compare/project-b-v1.3.0...project-b-v1.4.0) (2024-07-20)
 
 
