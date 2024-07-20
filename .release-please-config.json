@@ -1,5 +1,4 @@
 {
-  "group-pull-request-title-pattern": "chore: release ${version}",
   "packages": {
     "projectA": {
       "release-type": "node",
