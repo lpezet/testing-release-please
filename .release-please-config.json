@@ -1,5 +1,10 @@
 {
   "skip-github-release": true,
+  "plugins": [
+    {
+      "type": "sentence-case"
+    }
+  ],
   "packages": {
     "projectA": {
       "release-type": "node",
