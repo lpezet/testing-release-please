@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.6.2](https://github.com/lpezet/testing-release-please/compare/project-b-v1.6.1...project-b-v1.6.2) (2024-07-21)
+
+
+### Chores
+
+* Release 1.6.2 ([c24f2e7](https://github.com/lpezet/testing-release-please/commit/c24f2e71621371b72c63b1b7fcd4df73d9b036c5))
+
 ## [1.6.1](https://github.com/lpezet/testing-release-please/compare/project-b-v1.6.0...project-b-v1.6.1) (2024-07-20)
 
 
