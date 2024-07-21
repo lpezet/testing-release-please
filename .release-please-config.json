@@ -8,7 +8,6 @@
   "packages": {
     "projectA": {
       "release-type": "node",
-      "package-name": "project-a",
       "bump-minor-pre-major": true,
       "changelog-sections": [
         {
@@ -27,7 +26,6 @@
     },
     "projectB": {
       "release-type": "node",
-      "package-name": "project-b",
       "bump-minor-pre-major": true,
       "changelog-sections": [
         {
