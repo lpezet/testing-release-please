@@ -1,0 +1,134 @@
+name: Trigger on Comment
+
+on:
+  issue_comment:
+    types: [created]
+
+permissions:
+  id-token: write
+  contents: read
+  issues: "write"
+  pull-requests: "write"
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    outputs:
+      is_member: ${{ steps.check_team.outputs.isMember == 'true' }}
+    steps:
+      - name: Check if comment is on a PR
+        if: github.event.issue.pull_request != null
+        run: echo "This is a comment on a PR."
+
+      - name: Check if comment is on an Issue
+        if: github.event.issue.pull_request == null
+        run: echo "This is a comment on an Issue."
+
+      - name: Check Team Membership
+        id: check_team
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const dev_deployers = ["lpezet"];
+            const username = context.actor;
+            const isMember = dev_deployers.includes(username);
+            /*
+            const teamSlug = 'release-managers';  // Replace with your team's slug
+            const org = 'humanauthealth';  // Replace with your organization name
+            // Check if the user is a member of the specified team
+            // core.info(`Payload: ${JSON.stringify(context.payload, null, 2)}`);
+            core.info(`Checking user [${username}] is part of team [${teamSlug}] at [${org}]...`);
+            try {
+              const data = await github.rest.teams.getMembershipForUserInOrg({
+                org,
+                team_slug: teamSlug,
+                username,
+              });
+              core.setOutput("fullData", JSON.stringify(data, null, 2));
+              isMember = data.state === 'active';
+              core.info(`Membership data: ${JSON.stringify(data, null, 2)}`);
+            } catch (error) {
+              isMember = false;
+              core.info(`User is not a member of the team.`);
+              core.error('Error getting user membership.');
+              core.error(error);
+            }
+            */
+            core.setOutput("isMember", isMember);
+
+          result-encoding: string
+
+  skipped-step:
+    needs: [check]
+    runs-on: ubuntu-latest
+    if: false
+    steps:
+      - run: echo "This step should be skipped (and this never shown)."
+
+  failed-step:
+    needs: [check]
+    runs-on: ubuntu-latest
+    steps:
+      - run: echo "This step will fail."
+      - run: exit 1"
+
+  info:
+    needs: [skipped-step, failed-step]
+    if: always()
+    runs-on: ubuntu-latest
+    permissions:
+      id-token: write
+      contents: read
+      issues: "write"
+      pull-requests: "write"
+    steps:
+      - name: Extract version from branch name
+        id: extract_version_old
+        run: echo "version=${GITHUB_REF#refs/heads/release/:'NA'}" >> $GITHUB_OUTPUT
+      - name: Extract target version
+        id: extract_version
+        uses: actions/github-script@v7
+        with:
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          script: |
+            const prNumber = context.payload.issue.number;
+            const { data: pr } = await github.rest.pulls.get({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              pull_number: prNumber
+            });
+            return { baseRef: pr.base.ref };
+
+      - uses: actions/github-script@v7
+        if: always()
+        with:
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          script: |
+            const { data: comments } = await github.rest.issues.listComments({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              issue_number: context.issue.number,
+            })
+            const botComment = comments.find(comment => {
+              return comment.user.type === 'Bot' && comment.body.includes('Deployment')
+            })
+            const output = `
+            #### skipped-step 📖: \`${{ needs.skipped-step.result }}\`
+            #### failed-step 📖: \`${{ needs.failed-step.result }}\`
+            `;
+
+            if (botComment) {
+              github.rest.issues.updateComment({
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                comment_id: botComment.id,
+                body: output
+              })
+            } else {
+              github.rest.issues.createComment({
+                issue_number: context.issue.number,
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                body: output
+              })
+            }
