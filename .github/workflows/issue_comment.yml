@@ -73,7 +73,7 @@ jobs:
       - run: exit 1"
 
   info:
-    needs: [skipped-step, failed-step]
+    needs: [check, skipped-step, failed-step]
     if: always()
     runs-on: ubuntu-latest
     permissions:
@@ -97,6 +97,7 @@ jobs:
               repo: context.repo.repo,
               pull_number: prNumber
             });
+            core.setOutput("pull_req", pr); // JSON.stringify(data, null, 2));
             return { baseRef: pr.base.ref };
 
       - uses: actions/github-script@v7
@@ -113,6 +114,7 @@ jobs:
               return comment.user.type === 'Bot' && comment.body.includes('Deployment')
             })
             const output = `
+            #### check 📖: \`${{ needs.check.result }}\`
             #### skipped-step 📖: \`${{ needs.skipped-step.result }}\`
             #### failed-step 📖: \`${{ needs.failed-step.result }}\`
             `;
